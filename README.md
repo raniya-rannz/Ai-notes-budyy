@@ -97,6 +97,31 @@ Results are saved to Firestore with timestamp and type.
 
 ---
 
+
+🔑 Firebase Admin SDK (firebase_key.json)
+To enable Firebase Firestore integration, you need to provide Firebase Admin credentials. Follow these steps:
+
+1. Go to Firebase Console
+Open https://console.firebase.google.com
+
+Select your project or create a new one.
+
+2. Generate Admin SDK Key
+Go to Project Settings > Service Accounts
+
+Click Generate new private key
+
+Download the .json file
+
+3. Save the Key
+Place the file in your project root and rename it: firebase_key.json
+
+4. Add to .gitignore
+
+cmd: echo "firebase_key.json" >> .gitignore
+
+
+
 ## 📝 Sample Notes
 
 Try these for summarization/categorization:
