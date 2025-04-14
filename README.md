@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # AI Notes Buddy
 
 A simple FastAPI web app that lets users log in with Google and use AI to **summarize** or **categorize** their notes. Each note is stored in Firebase Firestore and linked to the authenticated user.
@@ -300,5 +299,4 @@ jinja2
 
 ---
 
->>>>>>> 7218c447fcf08767449a0733ae4e6ca9904099fb
 Made with ❤️ using FastAPI, Firebase & Hugging Face
