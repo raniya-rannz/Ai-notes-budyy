@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  fastapi-app:
+    build: .
+    container_name: ai-notes-buddy
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./firebase_key.json:/app/firebase_key.json
+      - ./.env:/app/.env
+    environment:
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - GOOGLE_REDIRECT_URI=${GOOGLE_REDIRECT_URI}
+      - GOOGLE_AUTH_ENDPOINT=${GOOGLE_AUTH_ENDPOINT}
+      - GOOGLE_TOKEN_ENDPOINT=${GOOGLE_TOKEN_ENDPOINT}
+      - GOOGLE_USERINFO_ENDPOINT=${GOOGLE_USERINFO_ENDPOINT}
+      - SCOPES=${SCOPES}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - HUGGING_KEY=${HUGGING_KEY}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALGORITHM=${ALGORITHM}
+      - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
+    restart: unless-stopped

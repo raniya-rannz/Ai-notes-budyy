@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Note Details</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #000000, #ffffff);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 15px 30px;
+      border-bottom: 1px solid grey;
+    }
+
+    .nav-left a, .nav-right span {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      margin-right: 20px;
+    }
+
+    .nav-left a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 1px solid grey;
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 700px;
+      width: 90%;
+      margin: 30px auto;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: #ffffff;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .field label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .field p {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 10px;
+      border: 1px solid grey;
+      border-radius: 6px;
+      color: white;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-left">
+      <a href="/options">Home</a>
+      <a href="/history">History</a>
+      <a href="/logout">Logout</a>
+    </div>
+    <div class="nav-right">
+      <span>{{ email }}</span> |
+      <span>Note ID: {{ note.id }}</span>
+    </div>
+  </div>
+
+  <!-- Note Details Card -->
+  <div class="container">
+    <h2>{{ note.converted_type }} Note Details</h2>
+
+    <div class="field">
+      <label>Original Note:</label>
+      <p>{{ note.note }}</p>
+    </div>
+
+    <div class="field">
+      <label>Category:</label>
+      <p>{{ note.converted_type }}</p>
+    </div>
+
+    <div class="field">
+      <label>AI Result:</label>
+      <p>{{ note.result }}</p>
+    </div>
+
+    <div class="field">
+      <label>Date:</label>
+      <p>{{ note.datetime.strftime('%b %d, %Y, %I:%M %p') }}</p>
+    </div>
+  </div>
+
+</body>
+</html>
