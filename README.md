@@ -65,6 +65,29 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 
 ---
 
+🤖 AI Processing (Hugging Face GPT-2 or Local Ollama)
+You can process notes with:
+
+Hugging Face GPT-2 (cloud-based)
+
+Ollama with Mistral (local, faster, private)
+
+🛠️ Setup Ollama (Optional, for Local LLM Inference)
+Ollama lets you run LLMs like Mistral locally with zero setup. If you prefer not to rely on cloud APIs, follow these steps:
+
+1. Install Ollama
+Visit https://ollama.com and download/install for your OS.
+
+2. Pull the Mistral Model
+Once installed, open a terminal and run:
+
+cmd: ollama pull mistral
+
+3. Start the Ollama Service
+
+Make sure Ollama is running. Usually it starts automatically in the background. If needed,
+
+cmd: ollama run mistral
 ## 🤖 AI Processing (Hugging Face GPT-2)
 
 - **Summarize**:  
