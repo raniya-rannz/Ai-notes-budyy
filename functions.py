@@ -191,9 +191,9 @@ def ollama_categorize(note):
     Categories: <comma-separated categories>
     """
     #localhost
-    url = "http://ollama:11434/api/generate"
+    url = "http://localhost:11434/api/generate"
     #docker
-    #url = "http://localhost:11434/api/generate"
+    #url = "http://ollama:11434/api/generate"
     response = requests.post(url, json={
         "model": "mistral",
         "prompt": prompt,
