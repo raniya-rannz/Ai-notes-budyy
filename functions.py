@@ -161,7 +161,10 @@ def ollama_summarize(note):
     Summary: <summary here>
     """
 
+    #localhost
     url = "http://ollama:11434/api/generate"
+    #docker
+    #url = "http://ollama:11434/api/generate"
     response = requests.post(url, json={
         "model": "mistral",
         "prompt": prompt,
@@ -187,8 +190,10 @@ def ollama_categorize(note):
     Respond in the format:
     Categories: <comma-separated categories>
     """
-
+    #localhost
     url = "http://ollama:11434/api/generate"
+    #docker
+    #url = "http://ollama:11434/api/generate"
     response = requests.post(url, json={
         "model": "mistral",
         "prompt": prompt,
