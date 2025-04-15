@@ -174,7 +174,11 @@ async def conert_ai(request: Request,
         user_get=user_decode['user_id']
 
         if category == "summarize":
-            result=fun.summarize_note(note_get)
+            #using huggingface
+            # result=fun.summarize_note(note_get)
+
+            #using ollama
+            result=fun.ollama_summarize(note_get)
             
             result_db_save=fun.save_note_db(user_get,"Summarized",note_get,result)
             
@@ -187,7 +191,11 @@ async def conert_ai(request: Request,
             return response
 
         elif category == "categorize":
-            result=fun.categorize_note(note_get)
+            #using huggingface
+            # result=fun.categorize_note(note_get)
+
+            #using ollama
+            result=fun.ollama_categorize(note_get)
 
             result_db_save=fun.save_note_db(user_get,"Categorized",note_get,result)
 

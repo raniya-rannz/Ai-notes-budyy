@@ -148,3 +148,59 @@ def single_note(note_id):
         return {**notes_query.to_dict(), "id": notes_query.id}
     
     return {}
+
+
+def ollama_summarize(note):
+    prompt = f"""
+    Summarize the following note.
+
+    Paragraph:
+    \"\"\"{note}\"\"\"
+
+    Respond in the format:
+    Summary: <summary here>
+    """
+
+    url = "http://ollama:11434/api/generate"
+    response = requests.post(url, json={
+        "model": "mistral",
+        "prompt": prompt,
+        "stream": False
+    })
+
+    if response.status_code != 200:
+        print(response.json())
+
+        result_note="Error occured. No results are generated"
+        return result_note
+
+    result = response.json()
+    return result.get("response", "No response from model")
+
+def ollama_categorize(note):
+    prompt = f"""
+    categorize the following paragraph.
+
+    Paragraph:
+    \"\"\"{note}\"\"\"
+
+    Respond in the format:
+    Categories: <comma-separated categories>
+    """
+
+    url = "http://ollama:11434/api/generate"
+    response = requests.post(url, json={
+        "model": "mistral",
+        "prompt": prompt,
+        "stream": False
+    })
+
+    if response.status_code != 200:
+        print(response.json())
+        result_note="Error occured. No results are generated"
+        return result_note
+
+    result = response.json()
+    return result.get("response", "No response from model")
+
+    
